@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div style="text-align:center">
+      <h1>Battery</h1>
+      <h2 id="percentage"></h2>
+      <h2 id="charging"></h2>
+    </div>
+    <script type="text/javascript">
+      const percentage = document.getElementById('percentage')
+      const charging = document.getElementById('charging')
+
+      navigator.getBattery().then(battery => {
+        percentage.innerHTML = `${battery.level * 100}%`;
+
+        battery.addEventListener('levelchange', () => {
+          percentage.innerHTML = `${battery.level * 100}%`;
+        });
+
+      });
+    </script>
+  </body>
+</html>

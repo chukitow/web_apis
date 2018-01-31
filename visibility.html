@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <video src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" id="video" autoplay>
+    </video>
+
+    <script type="text/javascript">
+     document.title = "Playing Video";
+
+      window.addEventListener('visibilitychange', () => {
+        const video = document.getElementById('video');
+        console.log(document.visibilitychange)
+        switch (document.visibilityState) {
+          case 'hidden':
+            document.title = "Video stoped";
+            video.pause();
+            break;
+          case 'visible':
+           document.title = "Playing Video";
+            video.play();
+            break;
+          default:
+        }
+      })
+    </script>
+  </body>
+</html>

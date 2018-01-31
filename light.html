@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <img src="https://images.nowloading.co/images/c_limit,q_auto:good,w_600/kpxrv6tpi5cfi89u5k43/exploring-the-adorable-world-in-ayo-the-clown.jpg" alt="clown" id="clown">
+
+  <body>
+    <script type="text/javascript">
+      const img = document.querySelector('img')
+      window.addEventListener('devicelight', (event) => {
+        console.log(event.value)
+        if(event.value < 20) {
+          img.src = 'https://www.eluniverso.com/sites/default/files/fotos/2017/09/it.jpg';
+        }
+        else {
+          img.src = 'https://images.nowloading.co/images/c_limit,q_auto:good,w_600/kpxrv6tpi5cfi89u5k43/exploring-the-adorable-world-in-ayo-the-clown.jpg';
+        }
+      });
+    </script>
+  </body>
+</html>
