@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Speech Recongnition</h1>
+    <h2 id="results"></h2>
+
+    <script type="text/javascript">
+      const SpeechRecognition = window.SpeechRecognition ||
+                                window.webkitSpeechRecognition ||
+                                window.mozSpeechRecognition ||
+                                window.msSpeechRecognition ||
+                                window.oSpeechRecognition;
+
+      const recognition = new SpeechRecognition();
+
+      recognition.lang = 'en-US';
+      recognition.continuous = true;
+      recognition.start();
+
+      recognition.onresult = function (event) {
+        const SpeechRecognitionResult = event.results[event.resultIndex];
+
+        let results = "";
+        for (var k = 0; k<SpeechRecognitionResult.length; k++) {
+          results += SpeechRecognitionResult[k].transcript;
+        }
+
+        document.getElementById('results').innerHTML = results;
+      }
+
+      recognition.onerror = (event) => {
+        switch (event.error) {
+          case 'network':
+            throw('Networks troubles');
+            break;
+          case 'not-allowed':
+            throw('Permission denied');
+          case 'service-not-allowed':
+            throw('Permission denied');
+        }
+      }
+    </script>
+  </body>
+</html>
